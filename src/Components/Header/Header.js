@@ -1,11 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-const Header = () => {
-  return (
-    <h2>
-      MONEY TRACKER
-    </h2>
-  )
-}
+const Header = () => (
+  <h2>
+    MONEY TRACKER
+  </h2>
+);
 
-export default Header
+export default Header;
