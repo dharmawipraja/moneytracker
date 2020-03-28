@@ -14,7 +14,7 @@ const initialState = {
 };
 
 // Create Context
-export const GlobalContext = createContext(initialState)
+export const GlobalContext = createContext(initialState);
 
 // Provider
 export const GlobalProvider = ({ children }) => {

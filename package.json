@@ -16,8 +16,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src/**/*.js",
-    "precommit": "npm run lint"
+    "clean": "rm -rf yarn.lock && rm -rf node_modules && yarn",
+    "lint": "eslint src/**/*.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "browserslist": {
     "production": [
