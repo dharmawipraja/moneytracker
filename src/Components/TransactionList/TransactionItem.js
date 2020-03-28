@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { GlobalContext } from '../../Context/GlobalState';
 
 function TransactionItem({ transaction }) {
@@ -19,5 +20,17 @@ function TransactionItem({ transaction }) {
     </li>
   );
 }
+
+TransactionItem.propTypes = {
+  transaction: PropTypes.shape({
+    id: PropTypes.number,
+    text: PropTypes.string,
+    amount: PropTypes.number
+  }),
+};
+
+TransactionItem.defaultProps = {
+  transaction: {}
+};
 
 export default TransactionItem;

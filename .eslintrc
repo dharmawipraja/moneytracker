@@ -5,14 +5,16 @@
       "node": true
   },
   "extends": "airbnb",
+  "plugins": ["react", "jsx-a11y"],
   "rules": {
       "quotes": ["error", "single"],
-      "comma-dangle": 0,
       "jsx-quotes": ["error", "prefer-single"],
-      "no-console": 0,
+      "comma-dangle": 0,
+      "no-console": 2,
+      "no-return-assign": 0,
+      "no-param-reassign": 0,
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-      "jsx-a11y/label-has-for": "off",
-      "no-return-assign:": "off",
-      "no-param-reassign:": "off"
+      "jsx-a11y/label-has-associated-control": 0,
+      "react/jsx-one-expression-per-line": 0
   }
 }

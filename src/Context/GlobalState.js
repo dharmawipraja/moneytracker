@@ -1,4 +1,5 @@
 import React, { createContext, useReducer } from 'react';
+import PropTypes from 'prop-types';
 import AppReducer from './AppReducer';
 
 // Initial State
@@ -13,7 +14,7 @@ const initialState = {
 };
 
 // Create Context
-export const GlobalContext = createContext(initialState);
+export const GlobalContext = createContext(initialState)
 
 // Provider
 export const GlobalProvider = ({ children }) => {
@@ -45,4 +46,8 @@ export const GlobalProvider = ({ children }) => {
       {children}
     </GlobalContext.Provider>
   );
+};
+
+GlobalProvider.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.element).isRequired
 };
