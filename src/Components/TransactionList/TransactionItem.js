@@ -16,14 +16,14 @@ function TransactionItem({ transaction }) {
     <li className={className}>
       {transaction.text}
       <span>{sign}${Math.abs(transaction.amount)}</span>
-      <button type='submit' className='delete-btn' onClick={() => deleteTransaction(transaction.id)}>x</button>
+      <button type='submit' className='delete-btn' onClick={() => deleteTransaction(transaction._id)}>x</button>
     </li>
   );
 }
 
 TransactionItem.propTypes = {
   transaction: PropTypes.shape({
-    id: PropTypes.number,
+    _id: PropTypes.string,
     text: PropTypes.string,
     amount: PropTypes.number
   }),
