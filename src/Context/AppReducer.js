@@ -18,6 +18,18 @@ export default (state, action) => {
         loading: true,
         transactions: state.transactions.filter((transaction) => transaction.id !== action.payload)
       };
+    case 'TOTAL_INCOME':
+      return {
+        ...state,
+        loading: false,
+        totalIncome: action.payload
+      };
+    case 'TOTAL_EXPENSE':
+      return {
+        ...state,
+        loading: false,
+        totalExpense: action.payload
+      };
     case 'TRANSACTION_ERROR':
       return {
         ...state,

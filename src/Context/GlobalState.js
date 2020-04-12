@@ -6,6 +6,8 @@ import { getAllTransactions, addNewTransaction, deleteTransactionById } from '..
 // Initial State
 const initialState = {
   transactions: [],
+  totalIncome: 0,
+  totalExpense: 0,
   error: null,
   loading: true
 };
@@ -25,6 +27,14 @@ export const GlobalProvider = ({ children }) => {
       dispatch({
         type: 'GET_ALL_TRANSACTIONS',
         payload: data.data
+      });
+      dispatch({
+        type: 'TOTAL_INCOME',
+        payload: data.totalIncome
+      });
+      dispatch({
+        type: 'TOTAL_EXPENSE',
+        payload: data.totalExpense
       });
     } else {
       dispatch({
@@ -70,6 +80,8 @@ export const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider
       value={{
         transactions: state.transactions,
+        totalIncome: state.totalIncome,
+        totalExpense: state.totalExpense,
         error: state.error,
         loading: state.loading,
         getTransactions,
