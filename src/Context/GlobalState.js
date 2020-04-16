@@ -6,6 +6,7 @@ import { getAllTransactions, addNewTransaction, deleteTransactionById } from '..
 // Initial State
 const initialState = {
   transactions: [],
+  totalTransactions: 0,
   totalIncome: 0,
   totalExpense: 0,
   error: null,
@@ -20,13 +21,13 @@ export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   // Actions
-  const getTransactions = async () => {
-    const { data } = await getAllTransactions();
+  const getTransactions = async (value = 0) => {
+    const { data } = await getAllTransactions(value);
 
     if (data.success) {
       dispatch({
         type: 'GET_ALL_TRANSACTIONS',
-        payload: data.data
+        payload: data
       });
       dispatch({
         type: 'TOTAL_INCOME',
@@ -86,6 +87,7 @@ export const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider
       value={{
         transactions: state.transactions,
+        totalTransactions: state.totalTransactions,
         totalIncome: state.totalIncome,
         totalExpense: state.totalExpense,
         error: state.error,

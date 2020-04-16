@@ -2,8 +2,25 @@ import React, { useContext } from 'react';
 import { GlobalContext } from '../../Context/GlobalState';
 import TransactionItem from './TransactionItem';
 
+const renderPageButton = (count, getTransactions) => {
+  const page = Math.ceil(count / 5);
+  const array = [];
+  for (let i = 0; i < page; i++) {
+    array.push(i);
+  }
+
+  return array.map((pageNumber) => (
+    <button
+      type='button'
+      onClick={() => getTransactions(pageNumber)}
+    >
+      {pageNumber + 1}
+    </button>
+  ));
+};
+
 const TransactionList = () => {
-  const { transactions } = useContext(GlobalContext);
+  const { transactions, totalTransactions, getTransactions } = useContext(GlobalContext);
 
   return (
     <>
@@ -16,6 +33,7 @@ const TransactionList = () => {
           />
         )) }
       </ul>
+      {renderPageButton(totalTransactions, getTransactions)}
     </>
   );
 };

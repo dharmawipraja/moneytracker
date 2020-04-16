@@ -1,11 +1,12 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000/api/v1/transactions';
+const BASE_URL = new URL('http://localhost:5000/api/v1/transactions');
 
-export const getAllTransactions = async () => {
+export const getAllTransactions = async (query) => {
   let response;
+  const NEW_URL = new URL(`${BASE_URL}?page=${query}`);
   try {
-    response = await axios.get(BASE_URL);
+    response = await axios.get(NEW_URL);
   } catch (err) {
     response = err.response;
   }

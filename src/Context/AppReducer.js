@@ -4,7 +4,8 @@ export default (state, action) => {
       return {
         ...state,
         loading: false,
-        transactions: action.payload
+        transactions: action.payload.data,
+        totalTransactions: action.payload.totalTransactions
       };
     case 'ADD_TRANSACTION':
       return {
