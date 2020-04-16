@@ -33,7 +33,13 @@ export default (state, action) => {
     case 'TRANSACTION_ERROR':
       return {
         ...state,
+        loading: false,
         error: action.payload
+      };
+    case 'REMOVE_NOTIFICATIONS':
+      state.error.pop();
+      return {
+        ...state,
       };
     default:
       return state;

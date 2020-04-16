@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { ToastProvider } from 'react-toast-notifications';
 
 import { GlobalContext } from '../Context/GlobalState';
 import Header from '../Components/Header/Header';
@@ -10,7 +11,12 @@ import Loading from '../Components/Loading/Loading';
 
 const renderContent = () => (
   <>
-    <Header />
+    <ToastProvider
+      autoDismiss
+      autoDismissTimeout={3000}
+    >
+      <Header />
+    </ToastProvider>
     <div className='container'>
       <Balance />
       <IncomeExpense />

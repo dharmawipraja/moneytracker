@@ -76,6 +76,12 @@ export const GlobalProvider = ({ children }) => {
     }
   };
 
+  const removeNotifications = () => {
+    dispatch({
+      type: 'REMOVE_NOTIFICATIONS'
+    });
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -86,7 +92,8 @@ export const GlobalProvider = ({ children }) => {
         loading: state.loading,
         getTransactions,
         addTransaction,
-        deleteTransaction
+        deleteTransaction,
+        removeNotifications,
       }}
     >
       {children}

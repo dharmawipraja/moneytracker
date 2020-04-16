@@ -50,7 +50,7 @@ const AddTransaction = () => {
       <form onSubmit={onSubmit}>
         <div className='form-control'>
           <label htmlFor='text'>Transaction Name</label>
-          <input type='text' value={text} onChange={(e) => setText(e.target.value)} placeholder='Enter text...' required />
+          <input type='text' value={text} onChange={(e) => setText(e.target.value)} placeholder='Enter text...' />
         </div>
         <div className='form-control'>
           <label htmlFor='transaction-type'>
@@ -63,7 +63,7 @@ const AddTransaction = () => {
           <label htmlFor='amount'>
             Amount
           </label>
-          <input type='number' value={amount} onChange={(e) => setAmount(e.target.value)} placeholder='Enter amount...' min='1' required />
+          <input type='number' value={amount} onChange={(e) => setAmount(e.target.value)} placeholder='Enter amount...' min='1' />
         </div>
         <button type='submit' className='btn'>Add transaction</button>
       </form>
